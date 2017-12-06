@@ -13,6 +13,7 @@
     path: "{{ mysql_backup_dir }}"
     recurse: yes
     state: directory
+    user: "{{ mysql_backup_user }}"
 
 - name: Create cron job
   become: yes
