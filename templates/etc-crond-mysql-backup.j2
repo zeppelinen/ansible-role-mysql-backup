@@ -2,7 +2,7 @@
 # Dump all MySQL/MariaDB databases
 
 OUTPUT="{{ mysql_backup_dir | quote }}/$(date +{{ mysql_backup_filename_format | quote }})"
-/usr/bin/mysqldump --all-databases -r "$OUTPUT.tmp"
+/usr/bin/mysqldump --single-transaction --skip-lock-tables --all-databases -r "$OUTPUT.tmp"
 
 size=$(stat -c%s "$OUTPUT.tmp")
 if [ $size -lt {{ mysql_backup_minimum_expected_size }} ]; then
