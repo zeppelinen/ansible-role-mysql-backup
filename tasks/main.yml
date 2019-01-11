@@ -1,9 +1,9 @@
 ---
 # tasks file for mysql-backup
 
-- name: Install mariadb client
+- name: Install mysql client
   become: yes
-  apt:
+  package:
     name: mariadb-client
     state: present
 
