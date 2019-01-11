@@ -11,3 +11,4 @@ if [ $size -lt {{ mysql_backup_minimum_expected_size }} ]; then
 fi
 
 mv "$OUTPUT.tmp" "$OUTPUT"
+chown {{ mysql_backup_user | quote }} "$OUTPUT" 
